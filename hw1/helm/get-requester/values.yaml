@@ -1,0 +1,9 @@
+app: get-requester
+replicas: 1
+image: docker.io/az0t24/get-requester:0.0.1
+imagePullPolicy: IfNotPresent
+
+args:
+  protocol: http
+  host: web-app-svc.web-app.svc
+  endpoint: /statistics
