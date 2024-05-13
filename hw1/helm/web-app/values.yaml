@@ -1,0 +1,10 @@
+app: web-app
+replicas: 1
+image: docker.io/az0t24/web-app:0.0.1
+imagePullPolicy: Always
+
+args:
+  protocol: http
+  host: web-app-svc.web-app.svc
+  port: 8080
+  endpoint: /statistics

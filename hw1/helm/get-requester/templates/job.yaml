@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: puller-job
+spec:
+  template:
+    metadata:
+      name: puller
+    spec:
+      containers:
+        - name: puller
+          image: {{ .Values.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args:
+            - {{ .Values.args.protocol }}
+            - {{ .Values.args.host }}
+            - "{{ .Values.args.port }}"
+            - {{ .Values.args.endpoint }}
+      restartPolicy: Never
